@@ -740,7 +740,7 @@ For execution run all the 5 terminal commands from week 3 and also
 ros2 run ros2_simple_arm_py integrated_pickup
 ```
 
-<img src="iron_man_tony_stark.gif" width="800">  
+<img src="iron-man-tony-stark.gif" width="800">  
 
 It's better to run this command before the chase_the_ball command as otherwise if chase_the_ball.py sends found_object before integrated pickup node is set up then integrated_pickup never gets the topic message
 

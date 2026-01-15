@@ -1,17 +1,13 @@
-# winteRos_Template
+# Final Assignment 
 
 Let's take our ending file after week3 as a starting code and we need to make modifications to that file 
 
-First of all picking up a red ball is hard so let's make red cylinder 
-got to /home/ubuntu/gazebo_models or wherever u saved the gazebo models in week2
+First of all picking up a red ball is hard, so let's make red cylinder 
+go to /home/ubuntu/gazebo_models, or wherever you saved the Gazebo Model in Week 2
 
-there will be a folder called red_ball_10in 
-duplicate the folder and name it red_cylinder 
+There will be a folder called red_ball_10in.
 
-├── model.config
-├── model.sdf
-└── thumbnails
-    └── 1.png
+Duplicate the folder and name it red_cylinder 
 
 in model.config 
 change this line from ball to cylinder
@@ -19,7 +15,7 @@ change this line from ball to cylinder
 name>red_cylinder</name>
 `
 
-in model.sdf delete everything and copy paste this code 
+in model.sdf replace entire code with this block
 ```xml
 <?xml version="1.0" ?>
 <sdf version="1.5">
@@ -83,15 +79,15 @@ in model.sdf delete everything and copy paste this code
 </sdf>
 ```
 
-Okay now as we were gonna start with the week3 ending code workspace let's add erc_simple_arm and erc_simple_arm_py packages to the week3 workspace
+Now as we were gonna start with the Week 3 ending code workspace let's add erc_simple_arm and erc_simple_arm_py packages to the Week 3 workspace
 
-copy paste the mogi_arm.gazebo file 
+Copy paste the mogi_arm.gazebo file 
 
-from erc_simple_arm/urdf folder to erc_ros2_navigation/urdf folder because that's going to be our main bot which we are spawning with 
+From erc_simple_arm/urdf folder to erc_ros2_navigation/urdf folder because that's going to be our main bot which we are spawning with 
 
 also copy paste all the meshes in erc_simple_arm/meshes folder to erc_ros2_navigation folder 
 
-First we need to add the arm on the original bot we already have we will be placing it over the lidar as otherwise the arm will block the lidar's view 
+First we need to add the arm on the original bot we already have. We will be placing it over the lidar as otherwise the arm will block the lidar's view 
 
 
 ```xml
@@ -283,13 +279,13 @@ This variable is to denote that the cylinder is being picked up as if the cylind
 def picked_callback(self, msg):
         if(msg.data == True):
 ```
-We get this message from the arm_controller (haven't made file yet) 
+We get this message from the arm_controller (haven't made file yet, we will make it a little later) 
 when we finish picking up the cylinder 
 think about  all the things that should be changed in the code 
-Remember we want the bot to continue exploring after it picked up the cylinder 
-Is the bot picking the cylinder ? Is it stopping near the ball ? etc 
+Remember we want the bot to continue exploring after it picked up the cylinder.
+Is the bot picking the cylinder ? Is it stopping near the ball ? etc are things you should consider.
 
-think about what to keep in this if statement
+Think about what to keep in this if statement
 
 ```pythonif area_percentage >= self.area_threshold:
                 # Ball is close enough - STOP
@@ -347,7 +343,7 @@ think about what to keep in this if statement
 ```
 
 This is the old code of chase_the_ball.py
-try to making the following changes 
+Try to making the following changes 
 use the variable self.picking_ball 
 update the variable when you are going to pick up the cylinder 
 also send a message in the 
@@ -357,7 +353,7 @@ also think about how to use self.picking_ball to change the if statements so tha
 Finally now we need to make the logic for picking up the cylinder 
 make a file called `integrated_pickup.py` in erc_ros2_simple_arm_py which takes topic information from chase_the_ball.py and picksup the cylinder 
 
-This file has some blanks you would be needing to fill those 
+This file has some blanks, you need to fill those. 
 
 ```python
 #whole file is a change 

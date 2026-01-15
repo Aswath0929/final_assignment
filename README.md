@@ -1,5 +1,7 @@
 # Final Assignment 
 
+You’ve built the arm. You’ve given the system perception. Now it’s time to make StarkOS connect the dots. In this assignment, the robotic arm and the ball stop existing as separate problems and start operating as one integrated system. Ball data flows through ROS, drives control decisions, and directly shapes motion. No scripts. No isolation. Just perception, coordination, and execution fused into a single, responsive machine — exactly how Stark would build it.
+
 Let's take our ending file after week3 as a starting code and we need to make modifications to that file 
 
 First of all picking up a red ball is hard, so let's make red cylinder 
@@ -739,5 +741,7 @@ ros2 run ros2_simple_arm_py integrated_pickup
 ```
 
 It's better to run this command before the chase_the_ball command as otherwise if chase_the_ball.py sends found_object before integrated pickup node is set up then integrated_pickup never gets the topic message
+
+This is the final build. The last time you open the workshop doors and power everything on with the intent to make it all work together. Every concept you’ve touched — perception, kinematics, control, ROS architecture, timing, failure handling — converges here. This assignment isn’t about proving that individual pieces function. It’s about proving you can integrate them into a coherent machine. When it works, it won’t feel like finishing homework. It will feel like closing the arc — knowing that what you built can sense the world, reason about it, and act with purpose. This is the moment you stop being a student of robotics and start thinking like a systems engineer.
 
 BEST OF LUCK
